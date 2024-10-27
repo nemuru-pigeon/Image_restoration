@@ -9,8 +9,4 @@ function restore_img = inverse_filter(h_motion, motion_I1)
     restore_freq = (fft_motion_I1 .* H_motion_conj) ./ abs(H_motion).^2;  % 频域恢复
     restore_img = real(ifft2(restore_freq));    % 逆傅里叶变换回到空间域
 
-    % 显示退化图像和恢复后的图像
-    figure;
-    subplot(1, 2, 1); imshow(uint8(motion_I1)); title('退化图像');
-    subplot(1, 2, 2); imshow(uint8(restore_img)); title('直接逆滤波恢复图像');
 end
